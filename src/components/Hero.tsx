@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export default function Hero() {
@@ -12,11 +11,8 @@ export default function Hero() {
 
             <div className="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="mb-8"
+                <div
+                    className="mb-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 ease-out fill-mode-both"
                 >
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/60">
                         Let Your Code <br /> Do the Talking.
@@ -24,22 +20,17 @@ export default function Hero() {
                     <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
                         Generate technical blogs, changelogs, and product content straight from your GitHub repo.
                     </p>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-                    className="w-full max-w-lg mt-8"
+                <div
+                    className="w-full max-w-lg mt-8 animate-in fade-in zoom-in-95 duration-1000 ease-out fill-mode-both delay-300"
                 >
-
-
                     <div className="mt-8 flex items-center justify-center gap-4 text-xs text-muted-foreground/60">
                         <span className="w-1 h-1 bg-white/20 rounded-full"></span>
                         <span className="flex items-center gap-1">No marketing. Just code → content.✨</span>
                         <span className="flex items-center gap-1"></span>
                     </div>
-                </motion.div>
+                </div>
 
             </div>
         </div>
