@@ -1,6 +1,7 @@
 ---
 import "@/styles/globals.css";
 import SEO from "@/components/SEO.astro";
+import PostHog from "@/components/posthog.astro";
 
 interface Props {
 	title?: string;
@@ -14,6 +15,7 @@ const { title, description } = Astro.props;
 <html lang="en" class="dark">
 	<head>
 		<SEO title={title} description={description} />
+		<PostHog />
         <script is:inline>
             const getThemePreference = () => {
                 if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
