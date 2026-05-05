@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://example.com
+Host: https://qylosai.vercel.app
 
 # Sitemaps
-Sitemap: https://example.com/sitemap-index.xml
+Sitemap: https://qylosai.vercel.app/sitemap-index.xml
