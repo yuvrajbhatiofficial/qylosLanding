@@ -1,16 +1,27 @@
 ---
-
+import Layout from '@/layouts/Layout.astro';
+import Navbar from '@/components/Navbar.astro';
+import Hero from '@/components/Hero';
+import FeatureShowcase from '@/components/FeatureShowcase';
+import Testimonials from '@/components/Testimonials';
+import Newsletter from '@/components/Newsletter';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+    title="Qylos AI | Generate Content from GitHub Repositories"
+    description="Qylos AI automatically analyzes your GitHub repositories and generates platform-ready content for LinkedIn, Twitter, Dev.to, and more. Let your code do the talking."
+>
+	<Navbar />
+	<main>
+		<Hero client:load />
+		<FeatureShowcase client:visible />
+		<Testimonials client:visible />
+		<Newsletter client:visible />
+	</main>
+    
+    <footer class="py-10 border-t border-white/10 text-center text-muted-foreground text-sm">
+        <div class="container mx-auto px-4">
+            <p>&copy; {new Date().getFullYear()} Qylos AI. All rights reserved.</p>
+        </div>
+    </footer>
+</Layout>
