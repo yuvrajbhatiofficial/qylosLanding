@@ -4,8 +4,8 @@ import SEO from "@/components/SEO.astro";
 import PostHog from "@/components/posthog.astro";
 
 interface Props {
-	title?: string;
-	description?: string;
+    title?: string;
+    description?: string;
 }
 
 const { title, description } = Astro.props;
@@ -13,29 +13,46 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html lang="en" class="dark">
-	<head>
-		<SEO title={title} description={description} />
-		<PostHog />
+    <head>
+        <SEO title={title} description={description} />
+        <PostHog />
         <script is:inline>
             const getThemePreference = () => {
-                if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-                    return localStorage.getItem('theme');
+                if (
+                    typeof localStorage !== "undefined" &&
+                    localStorage.getItem("theme")
+                ) {
+                    return localStorage.getItem("theme");
                 }
-                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                return window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light";
             };
-            const isDark = getThemePreference() === 'dark';
-            document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
-         
-            if (typeof localStorage !== 'undefined') {
+            const isDark = getThemePreference() === "dark";
+            document.documentElement.classList[isDark ? "add" : "remove"](
+                "dark",
+            );
+
+            if (typeof localStorage !== "undefined") {
                 const observer = new MutationObserver(() => {
-                    const isDark = document.documentElement.classList.contains('dark');
-                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                    const isDark =
+                        document.documentElement.classList.contains("dark");
+                    localStorage.setItem("theme", isDark ? "dark" : "light");
                 });
-                observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+                observer.observe(document.documentElement, {
+                    attributes: true,
+                    attributeFilter: ["class"],
+                });
             }
         </script>
-	</head>
-	<body class="bg-background text-foreground min-h-screen font-sans antialiased overflow-x-hidden selection:bg-primary/20">
-		<slot />
-	</body>
+        <script is:inline>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");
+o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,
+o.onload=function(){window.trackingFunctions.onLoad({appId:"6a04e304730b620015f30f5a"})},
+document.head.appendChild(o)}initApollo();</script>
+    </head>
+    <body
+        class="bg-background text-foreground min-h-screen font-sans antialiased overflow-x-hidden selection:bg-primary/20"
+    >
+        <slot />
+    </body>
 </html>
